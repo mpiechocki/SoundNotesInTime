@@ -1,0 +1,8 @@
+platform :ios, '10.0'
+
+target 'SoundNotesInTime' do
+  pod 'Masonry'
+  pod 'IGListKit', '~> 3.0'
+end
+
+

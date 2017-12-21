@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		3B36740C1FEC408E00CBD94D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B36740B1FEC408E00CBD94D /* AppDelegate.m */; };
 		3B36740F1FEC408E00CBD94D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B36740E1FEC408E00CBD94D /* ViewController.m */; };
-		3B3674121FEC408E00CBD94D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B3674101FEC408E00CBD94D /* Main.storyboard */; };
 		3B3674141FEC408E00CBD94D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3674131FEC408E00CBD94D /* Assets.xcassets */; };
-		3B3674171FEC408E00CBD94D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B3674151FEC408E00CBD94D /* LaunchScreen.storyboard */; };
 		3B36741A1FEC408E00CBD94D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3674191FEC408E00CBD94D /* main.m */; };
+		7800485E2348AA56C3C7BF51 /* libPods-SoundNotesInTime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4831C4C85457A15A9F6F936C /* libPods-SoundNotesInTime.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +20,13 @@
 		3B36740B1FEC408E00CBD94D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3B36740D1FEC408E00CBD94D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3B36740E1FEC408E00CBD94D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3B3674111FEC408E00CBD94D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B3674131FEC408E00CBD94D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3B3674161FEC408E00CBD94D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B3674181FEC408E00CBD94D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B3674191FEC408E00CBD94D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3B3674211FEC54DB00CBD94D /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4831C4C85457A15A9F6F936C /* libPods-SoundNotesInTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SoundNotesInTime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5358459814C59338A6437BA9 /* Pods-SoundNotesInTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundNotesInTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundNotesInTime/Pods-SoundNotesInTime.debug.xcconfig"; sourceTree = "<group>"; };
+		D30F20D66597E2A8E248F62B /* Pods-SoundNotesInTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundNotesInTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundNotesInTime/Pods-SoundNotesInTime.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +34,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7800485E2348AA56C3C7BF51 /* libPods-SoundNotesInTime.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2981059FDF5FF1B0798086FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B3674211FEC54DB00CBD94D /* libMasonry.a */,
+				4831C4C85457A15A9F6F936C /* libPods-SoundNotesInTime.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3B3673FE1FEC408E00CBD94D = {
 			isa = PBXGroup;
 			children = (
 				3B3674091FEC408E00CBD94D /* SoundNotesInTime */,
 				3B3674081FEC408E00CBD94D /* Products */,
+				53BCD2DAA1763B0E652B6DB3 /* Pods */,
+				2981059FDF5FF1B0798086FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,13 +75,20 @@
 				3B36740B1FEC408E00CBD94D /* AppDelegate.m */,
 				3B36740D1FEC408E00CBD94D /* ViewController.h */,
 				3B36740E1FEC408E00CBD94D /* ViewController.m */,
-				3B3674101FEC408E00CBD94D /* Main.storyboard */,
 				3B3674131FEC408E00CBD94D /* Assets.xcassets */,
-				3B3674151FEC408E00CBD94D /* LaunchScreen.storyboard */,
 				3B3674181FEC408E00CBD94D /* Info.plist */,
 				3B3674191FEC408E00CBD94D /* main.m */,
 			);
 			path = SoundNotesInTime;
+			sourceTree = "<group>";
+		};
+		53BCD2DAA1763B0E652B6DB3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5358459814C59338A6437BA9 /* Pods-SoundNotesInTime.debug.xcconfig */,
+				D30F20D66597E2A8E248F62B /* Pods-SoundNotesInTime.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B36741D1FEC408E00CBD94D /* Build configuration list for PBXNativeTarget "SoundNotesInTime" */;
 			buildPhases = (
+				6A09EDCCBB30CA3CC1BB8019 /* [CP] Check Pods Manifest.lock */,
 				3B3674031FEC408E00CBD94D /* Sources */,
 				3B3674041FEC408E00CBD94D /* Frameworks */,
 				3B3674051FEC408E00CBD94D /* Resources */,
+				BA4637E2328B6A35E5D13BDD /* [CP] Embed Pods Frameworks */,
+				6D030EAD05E58ACA51E7AB1A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,13 +152,62 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B3674171FEC408E00CBD94D /* LaunchScreen.storyboard in Resources */,
 				3B3674141FEC408E00CBD94D /* Assets.xcassets in Resources */,
-				3B3674121FEC408E00CBD94D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A09EDCCBB30CA3CC1BB8019 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoundNotesInTime-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D030EAD05E58ACA51E7AB1A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundNotesInTime/Pods-SoundNotesInTime-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA4637E2328B6A35E5D13BDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundNotesInTime/Pods-SoundNotesInTime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B3674031FEC408E00CBD94D /* Sources */ = {
@@ -149,25 +221,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		3B3674101FEC408E00CBD94D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B3674111FEC408E00CBD94D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3B3674151FEC408E00CBD94D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B3674161FEC408E00CBD94D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3B36741B1FEC408E00CBD94D /* Debug */ = {
@@ -276,6 +329,7 @@
 		};
 		3B36741E1FEC408E00CBD94D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5358459814C59338A6437BA9 /* Pods-SoundNotesInTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -290,6 +344,7 @@
 		};
 		3B36741F1FEC408E00CBD94D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D30F20D66597E2A8E248F62B /* Pods-SoundNotesInTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
