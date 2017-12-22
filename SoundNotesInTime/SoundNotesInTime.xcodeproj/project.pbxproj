@@ -11,6 +11,8 @@
 		3B36740F1FEC408E00CBD94D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B36740E1FEC408E00CBD94D /* ViewController.m */; };
 		3B3674141FEC408E00CBD94D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3674131FEC408E00CBD94D /* Assets.xcassets */; };
 		3B36741A1FEC408E00CBD94D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3674191FEC408E00CBD94D /* main.m */; };
+		3B6290511FED376300197473 /* TestSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6290501FED376300197473 /* TestSectionController.m */; };
+		3B6290551FED38A600197473 /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6290541FED38A600197473 /* TestCell.m */; };
 		7800485E2348AA56C3C7BF51 /* libPods-SoundNotesInTime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4831C4C85457A15A9F6F936C /* libPods-SoundNotesInTime.a */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +26,10 @@
 		3B3674181FEC408E00CBD94D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B3674191FEC408E00CBD94D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B3674211FEC54DB00CBD94D /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B62904F1FED376300197473 /* TestSectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSectionController.h; sourceTree = "<group>"; };
+		3B6290501FED376300197473 /* TestSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSectionController.m; sourceTree = "<group>"; };
+		3B6290531FED38A600197473 /* TestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
+		3B6290541FED38A600197473 /* TestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCell.m; sourceTree = "<group>"; };
 		4831C4C85457A15A9F6F936C /* libPods-SoundNotesInTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SoundNotesInTime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5358459814C59338A6437BA9 /* Pods-SoundNotesInTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundNotesInTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundNotesInTime/Pods-SoundNotesInTime.debug.xcconfig"; sourceTree = "<group>"; };
 		D30F20D66597E2A8E248F62B /* Pods-SoundNotesInTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundNotesInTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundNotesInTime/Pods-SoundNotesInTime.release.xcconfig"; sourceTree = "<group>"; };
@@ -53,6 +59,8 @@
 		3B3673FE1FEC408E00CBD94D = {
 			isa = PBXGroup;
 			children = (
+				3B6290521FED388900197473 /* Cells */,
+				3B62904E1FED373600197473 /* SectionControllers */,
 				3B3674091FEC408E00CBD94D /* SoundNotesInTime */,
 				3B3674081FEC408E00CBD94D /* Products */,
 				53BCD2DAA1763B0E652B6DB3 /* Pods */,
@@ -80,6 +88,24 @@
 				3B3674191FEC408E00CBD94D /* main.m */,
 			);
 			path = SoundNotesInTime;
+			sourceTree = "<group>";
+		};
+		3B62904E1FED373600197473 /* SectionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B62904F1FED376300197473 /* TestSectionController.h */,
+				3B6290501FED376300197473 /* TestSectionController.m */,
+			);
+			path = SectionControllers;
+			sourceTree = "<group>";
+		};
+		3B6290521FED388900197473 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3B6290531FED38A600197473 /* TestCell.h */,
+				3B6290541FED38A600197473 /* TestCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		53BCD2DAA1763B0E652B6DB3 /* Pods */ = {
@@ -216,7 +242,9 @@
 			files = (
 				3B36740F1FEC408E00CBD94D /* ViewController.m in Sources */,
 				3B36741A1FEC408E00CBD94D /* main.m in Sources */,
+				3B6290551FED38A600197473 /* TestCell.m in Sources */,
 				3B36740C1FEC408E00CBD94D /* AppDelegate.m in Sources */,
+				3B6290511FED376300197473 /* TestSectionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
