@@ -1,17 +1,17 @@
 //
-//  TestSectionController.m
+//  RecordingSectionController.m
 //  SoundNotesInTime
 //
-//  Created by dontgonearthecastle on 22/12/2017.
-//  Copyright © 2017 dontgonearthecastle. All rights reserved.
+//  Created by dontgonearthecastle on 01/01/2018.
+//  Copyright © 2018 dontgonearthecastle. All rights reserved.
 //
 
-#import "TestSectionController.h"
+#import "RecordingSectionController.h"
 
-#import "TestCell.h"
 #import "SectionTypeDescriptor.h"
+#import "TestCell.h"
 
-@implementation TestSectionController {
+@implementation RecordingSectionController {
 	SectionTypeDescriptor *item;
 }
 
@@ -21,13 +21,14 @@
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
 	const CGFloat width = self.collectionContext.containerSize.width;
-	CGFloat height = 80.0;
+	CGFloat height = 50.0;
 	return CGSizeMake(width, height);
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
 	id cell = [self.collectionContext dequeueReusableCellOfClass:[TestCell class] forSectionController:self atIndex:index];
-	[(TestCell *) cell setText: item.title];
+	[(TestCell *) cell setText: @"MyRecording"];
+	((TestCell *) cell).backgroundColor = UIColor.brownColor;
 	return cell;
 }
 

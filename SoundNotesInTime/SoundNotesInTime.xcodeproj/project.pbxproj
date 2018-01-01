@@ -13,6 +13,10 @@
 		3B36741A1FEC408E00CBD94D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3674191FEC408E00CBD94D /* main.m */; };
 		3B6290511FED376300197473 /* TestSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6290501FED376300197473 /* TestSectionController.m */; };
 		3B6290551FED38A600197473 /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6290541FED38A600197473 /* TestCell.m */; };
+		3BFE17DB1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17DA1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m */; };
+		3BFE17DE1FFA873500C5AFFA /* PlaybackSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17DD1FFA873500C5AFFA /* PlaybackSectionController.m */; };
+		3BFE17E11FFA881F00C5AFFA /* RecordingSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17E01FFA881F00C5AFFA /* RecordingSectionController.m */; };
+		3BFE17E41FFA889800C5AFFA /* LibrarySectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17E31FFA889800C5AFFA /* LibrarySectionController.m */; };
 		7800485E2348AA56C3C7BF51 /* libPods-SoundNotesInTime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4831C4C85457A15A9F6F936C /* libPods-SoundNotesInTime.a */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +34,14 @@
 		3B6290501FED376300197473 /* TestSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSectionController.m; sourceTree = "<group>"; };
 		3B6290531FED38A600197473 /* TestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
 		3B6290541FED38A600197473 /* TestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCell.m; sourceTree = "<group>"; };
+		3BFE17D91FFA7A2E00C5AFFA /* SectionTypeDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionTypeDescriptor.h; sourceTree = "<group>"; };
+		3BFE17DA1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionTypeDescriptor.m; sourceTree = "<group>"; };
+		3BFE17DC1FFA873500C5AFFA /* PlaybackSectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaybackSectionController.h; sourceTree = "<group>"; };
+		3BFE17DD1FFA873500C5AFFA /* PlaybackSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaybackSectionController.m; sourceTree = "<group>"; };
+		3BFE17DF1FFA881F00C5AFFA /* RecordingSectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordingSectionController.h; sourceTree = "<group>"; };
+		3BFE17E01FFA881F00C5AFFA /* RecordingSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordingSectionController.m; sourceTree = "<group>"; };
+		3BFE17E21FFA889800C5AFFA /* LibrarySectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibrarySectionController.h; sourceTree = "<group>"; };
+		3BFE17E31FFA889800C5AFFA /* LibrarySectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibrarySectionController.m; sourceTree = "<group>"; };
 		4831C4C85457A15A9F6F936C /* libPods-SoundNotesInTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SoundNotesInTime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5358459814C59338A6437BA9 /* Pods-SoundNotesInTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundNotesInTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundNotesInTime/Pods-SoundNotesInTime.debug.xcconfig"; sourceTree = "<group>"; };
 		D30F20D66597E2A8E248F62B /* Pods-SoundNotesInTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundNotesInTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundNotesInTime/Pods-SoundNotesInTime.release.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +71,7 @@
 		3B3673FE1FEC408E00CBD94D = {
 			isa = PBXGroup;
 			children = (
+				3BFE17D81FFA79E300C5AFFA /* SupportingFiles */,
 				3B6290521FED388900197473 /* Cells */,
 				3B62904E1FED373600197473 /* SectionControllers */,
 				3B3674091FEC408E00CBD94D /* SoundNotesInTime */,
@@ -95,6 +108,12 @@
 			children = (
 				3B62904F1FED376300197473 /* TestSectionController.h */,
 				3B6290501FED376300197473 /* TestSectionController.m */,
+				3BFE17DC1FFA873500C5AFFA /* PlaybackSectionController.h */,
+				3BFE17DD1FFA873500C5AFFA /* PlaybackSectionController.m */,
+				3BFE17DF1FFA881F00C5AFFA /* RecordingSectionController.h */,
+				3BFE17E01FFA881F00C5AFFA /* RecordingSectionController.m */,
+				3BFE17E21FFA889800C5AFFA /* LibrarySectionController.h */,
+				3BFE17E31FFA889800C5AFFA /* LibrarySectionController.m */,
 			);
 			path = SectionControllers;
 			sourceTree = "<group>";
@@ -106,6 +125,15 @@
 				3B6290541FED38A600197473 /* TestCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		3BFE17D81FFA79E300C5AFFA /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3BFE17D91FFA7A2E00C5AFFA /* SectionTypeDescriptor.h */,
+				3BFE17DA1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		53BCD2DAA1763B0E652B6DB3 /* Pods */ = {
@@ -242,7 +270,11 @@
 			files = (
 				3B36740F1FEC408E00CBD94D /* ViewController.m in Sources */,
 				3B36741A1FEC408E00CBD94D /* main.m in Sources */,
+				3BFE17E41FFA889800C5AFFA /* LibrarySectionController.m in Sources */,
+				3BFE17DB1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m in Sources */,
 				3B6290551FED38A600197473 /* TestCell.m in Sources */,
+				3BFE17DE1FFA873500C5AFFA /* PlaybackSectionController.m in Sources */,
+				3BFE17E11FFA881F00C5AFFA /* RecordingSectionController.m in Sources */,
 				3B36740C1FEC408E00CBD94D /* AppDelegate.m in Sources */,
 				3B6290511FED376300197473 /* TestSectionController.m in Sources */,
 			);
