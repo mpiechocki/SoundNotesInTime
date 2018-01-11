@@ -9,7 +9,7 @@
 #import "LibrarySectionController.h"
 
 #import "SectionTypeDescriptor.h"
-#import "TestCell.h"
+#import "LibraryCell.h"
 
 @implementation LibrarySectionController {
 	SectionTypeDescriptor *item;
@@ -21,14 +21,12 @@
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
 	const CGFloat width = self.collectionContext.containerSize.width;
-	CGFloat height = 100.0;
+	CGFloat height = 500.0;
 	return CGSizeMake(width, height);
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
-	id cell = [self.collectionContext dequeueReusableCellOfClass:[TestCell class] forSectionController:self atIndex:index];
-	[(TestCell *) cell setText: @"MyLibrary"];
-	((TestCell *) cell).backgroundColor = UIColor.greenColor;
+	id cell = [self.collectionContext dequeueReusableCellOfClass:[LibraryCell class] forSectionController:self atIndex:index];
 	return cell;
 }
 

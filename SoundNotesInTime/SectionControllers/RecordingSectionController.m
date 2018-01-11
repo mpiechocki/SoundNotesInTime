@@ -9,7 +9,7 @@
 #import "RecordingSectionController.h"
 
 #import "SectionTypeDescriptor.h"
-#import "TestCell.h"
+#import "RecordingCell.h"
 
 @implementation RecordingSectionController {
 	SectionTypeDescriptor *item;
@@ -26,9 +26,7 @@
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
-	id cell = [self.collectionContext dequeueReusableCellOfClass:[TestCell class] forSectionController:self atIndex:index];
-	[(TestCell *) cell setText: @"MyRecording"];
-	((TestCell *) cell).backgroundColor = UIColor.brownColor;
+	id cell = [self.collectionContext dequeueReusableCellOfClass:[RecordingCell class] forSectionController:self atIndex:index];
 	return cell;
 }
 

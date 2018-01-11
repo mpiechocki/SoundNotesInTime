@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B13E57420074845005531EE /* PlaybackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13E57320074845005531EE /* PlaybackCell.m */; };
+		3B13E57720075222005531EE /* RecordingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13E57620075222005531EE /* RecordingCell.m */; };
+		3B13E57A20075385005531EE /* LibraryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13E57920075385005531EE /* LibraryCell.m */; };
 		3B36740C1FEC408E00CBD94D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B36740B1FEC408E00CBD94D /* AppDelegate.m */; };
 		3B36740F1FEC408E00CBD94D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B36740E1FEC408E00CBD94D /* ViewController.m */; };
 		3B3674141FEC408E00CBD94D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3674131FEC408E00CBD94D /* Assets.xcassets */; };
@@ -21,6 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B13E57220074845005531EE /* PlaybackCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaybackCell.h; sourceTree = "<group>"; };
+		3B13E57320074845005531EE /* PlaybackCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaybackCell.m; sourceTree = "<group>"; };
+		3B13E57520075222005531EE /* RecordingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordingCell.h; sourceTree = "<group>"; };
+		3B13E57620075222005531EE /* RecordingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordingCell.m; sourceTree = "<group>"; };
+		3B13E57820075385005531EE /* LibraryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryCell.h; sourceTree = "<group>"; };
+		3B13E57920075385005531EE /* LibraryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryCell.m; sourceTree = "<group>"; };
 		3B3674071FEC408E00CBD94D /* SoundNotesInTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundNotesInTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B36740A1FEC408E00CBD94D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B36740B1FEC408E00CBD94D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,6 +132,12 @@
 			children = (
 				3B6290531FED38A600197473 /* TestCell.h */,
 				3B6290541FED38A600197473 /* TestCell.m */,
+				3B13E57220074845005531EE /* PlaybackCell.h */,
+				3B13E57320074845005531EE /* PlaybackCell.m */,
+				3B13E57520075222005531EE /* RecordingCell.h */,
+				3B13E57620075222005531EE /* RecordingCell.m */,
+				3B13E57820075385005531EE /* LibraryCell.h */,
+				3B13E57920075385005531EE /* LibraryCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -268,9 +283,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B13E57720075222005531EE /* RecordingCell.m in Sources */,
+				3B13E57420074845005531EE /* PlaybackCell.m in Sources */,
 				3B36740F1FEC408E00CBD94D /* ViewController.m in Sources */,
 				3B36741A1FEC408E00CBD94D /* main.m in Sources */,
 				3BFE17E41FFA889800C5AFFA /* LibrarySectionController.m in Sources */,
+				3B13E57A20075385005531EE /* LibraryCell.m in Sources */,
 				3BFE17DB1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m in Sources */,
 				3B6290551FED38A600197473 /* TestCell.m in Sources */,
 				3BFE17DE1FFA873500C5AFFA /* PlaybackSectionController.m in Sources */,

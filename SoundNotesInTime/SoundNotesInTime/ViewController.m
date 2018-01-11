@@ -23,6 +23,7 @@
 @property (nonatomic, strong) IGListAdapter *adapter;
 @property NSArray<SectionTypeDescriptor *> *sections;
 
+
 @end
 
 @implementation ViewController
