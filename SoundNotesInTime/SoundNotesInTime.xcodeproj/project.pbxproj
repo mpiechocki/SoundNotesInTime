@@ -10,6 +10,7 @@
 		3B13E57420074845005531EE /* PlaybackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13E57320074845005531EE /* PlaybackCell.m */; };
 		3B13E57720075222005531EE /* RecordingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13E57620075222005531EE /* RecordingCell.m */; };
 		3B13E57A20075385005531EE /* LibraryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13E57920075385005531EE /* LibraryCell.m */; };
+		3B32DA162007A2A700142D3C /* Metronome.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B32DA152007A2A700142D3C /* Metronome.m */; };
 		3B36740C1FEC408E00CBD94D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B36740B1FEC408E00CBD94D /* AppDelegate.m */; };
 		3B36740F1FEC408E00CBD94D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B36740E1FEC408E00CBD94D /* ViewController.m */; };
 		3B3674141FEC408E00CBD94D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3674131FEC408E00CBD94D /* Assets.xcassets */; };
@@ -30,6 +31,8 @@
 		3B13E57620075222005531EE /* RecordingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordingCell.m; sourceTree = "<group>"; };
 		3B13E57820075385005531EE /* LibraryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryCell.h; sourceTree = "<group>"; };
 		3B13E57920075385005531EE /* LibraryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryCell.m; sourceTree = "<group>"; };
+		3B32DA142007A2A700142D3C /* Metronome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Metronome.h; sourceTree = "<group>"; };
+		3B32DA152007A2A700142D3C /* Metronome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Metronome.m; sourceTree = "<group>"; };
 		3B3674071FEC408E00CBD94D /* SoundNotesInTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundNotesInTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B36740A1FEC408E00CBD94D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B36740B1FEC408E00CBD94D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,9 +80,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3B32DA132007A28200142D3C /* Metronome */ = {
+			isa = PBXGroup;
+			children = (
+				3B32DA142007A2A700142D3C /* Metronome.h */,
+				3B32DA152007A2A700142D3C /* Metronome.m */,
+			);
+			path = Metronome;
+			sourceTree = "<group>";
+		};
 		3B3673FE1FEC408E00CBD94D = {
 			isa = PBXGroup;
 			children = (
+				3B32DA132007A28200142D3C /* Metronome */,
 				3BFE17D81FFA79E300C5AFFA /* SupportingFiles */,
 				3B6290521FED388900197473 /* Cells */,
 				3B62904E1FED373600197473 /* SectionControllers */,
@@ -289,6 +302,7 @@
 				3B36741A1FEC408E00CBD94D /* main.m in Sources */,
 				3BFE17E41FFA889800C5AFFA /* LibrarySectionController.m in Sources */,
 				3B13E57A20075385005531EE /* LibraryCell.m in Sources */,
+				3B32DA162007A2A700142D3C /* Metronome.m in Sources */,
 				3BFE17DB1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m in Sources */,
 				3B6290551FED38A600197473 /* TestCell.m in Sources */,
 				3BFE17DE1FFA873500C5AFFA /* PlaybackSectionController.m in Sources */,
