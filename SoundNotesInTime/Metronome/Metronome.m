@@ -11,6 +11,8 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+#import "TriangleGenerator.h"
+
 static Float32 kBipDurationSeconds = 0.020;
 static Float32 kTempoChangeResponsivenessSeconds = 0.250;
 
@@ -55,7 +57,10 @@ static Float32 kTempoChangeResponsivenessSeconds = 0.250;
 	soundBuffer[0].frameLength = bipFrames;
 	soundBuffer[1].frameLength = bipFrames;
 	
-	// @TODO - GENERATE WAVES
+	TriangleGenerator *generator1 = [[TriangleGenerator alloc] initWithSampleRate:format.sampleRate];
+	TriangleGenerator *generator2 = [[TriangleGenerator alloc] initWithSampleRate:format.sampleRate frequency:261.6];
+	[generator1 renderBuffer:soundBuffer[0]];
+	[generator2 renderBuffer:soundBuffer[1]];
 	
 	AVAudioOutputNode *output = engine.outputNode;
 	[engine attachNode:player];

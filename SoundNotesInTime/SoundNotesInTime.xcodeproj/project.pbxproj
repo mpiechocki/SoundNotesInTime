@@ -17,6 +17,7 @@
 		3B36741A1FEC408E00CBD94D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3674191FEC408E00CBD94D /* main.m */; };
 		3B6290511FED376300197473 /* TestSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6290501FED376300197473 /* TestSectionController.m */; };
 		3B6290551FED38A600197473 /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6290541FED38A600197473 /* TestCell.m */; };
+		3B85C476201B2B9E00BA4453 /* TriangleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B85C475201B2B9E00BA4453 /* TriangleGenerator.m */; };
 		3BFE17DB1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17DA1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m */; };
 		3BFE17DE1FFA873500C5AFFA /* PlaybackSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17DD1FFA873500C5AFFA /* PlaybackSectionController.m */; };
 		3BFE17E11FFA881F00C5AFFA /* RecordingSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17E01FFA881F00C5AFFA /* RecordingSectionController.m */; };
@@ -46,6 +47,8 @@
 		3B6290501FED376300197473 /* TestSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSectionController.m; sourceTree = "<group>"; };
 		3B6290531FED38A600197473 /* TestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
 		3B6290541FED38A600197473 /* TestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCell.m; sourceTree = "<group>"; };
+		3B85C474201B2B8500BA4453 /* TriangleGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleGenerator.h; sourceTree = "<group>"; };
+		3B85C475201B2B9E00BA4453 /* TriangleGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriangleGenerator.m; sourceTree = "<group>"; };
 		3BFE17D91FFA7A2E00C5AFFA /* SectionTypeDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionTypeDescriptor.h; sourceTree = "<group>"; };
 		3BFE17DA1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionTypeDescriptor.m; sourceTree = "<group>"; };
 		3BFE17DC1FFA873500C5AFFA /* PlaybackSectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaybackSectionController.h; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 			children = (
 				3B32DA142007A2A700142D3C /* Metronome.h */,
 				3B32DA152007A2A700142D3C /* Metronome.m */,
+				3B85C474201B2B8500BA4453 /* TriangleGenerator.h */,
+				3B85C475201B2B9E00BA4453 /* TriangleGenerator.m */,
 			);
 			path = Metronome;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B13E57720075222005531EE /* RecordingCell.m in Sources */,
+				3B85C476201B2B9E00BA4453 /* TriangleGenerator.m in Sources */,
 				3B13E57420074845005531EE /* PlaybackCell.m in Sources */,
 				3B36740F1FEC408E00CBD94D /* ViewController.m in Sources */,
 				3B36741A1FEC408E00CBD94D /* main.m in Sources */,
