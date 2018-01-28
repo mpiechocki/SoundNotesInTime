@@ -15,7 +15,7 @@
 
 #import "SectionTypeDescriptor.h"
 #import "TestSectionController.h"
-#import "PlaybackSectionController.h"
+#import "MetronomeSectionController.h"
 #import "RecordingSectionController.h"
 #import "LibrarySectionController.h"
 #import "Metronome.h"
@@ -70,7 +70,7 @@
 	if (item == NULL) return IGListSectionController.new;
 	
 	switch (item.type) {
-		case Playback: return PlaybackSectionController.new;
+		case Playback: return MetronomeSectionController.new;
 		case Recording: return RecordingSectionController.new;
 		case Library: return LibrarySectionController.new;
 	}

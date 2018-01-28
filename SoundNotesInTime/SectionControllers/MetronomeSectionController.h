@@ -8,6 +8,6 @@
 
 #import <IGListKit/IGListKit.h>
 
-@interface PlaybackSectionController : IGListSectionController
+@interface MetronomeSectionController : IGListSectionController
 
 @end

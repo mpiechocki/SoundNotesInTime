@@ -19,7 +19,7 @@
 		3B6290551FED38A600197473 /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6290541FED38A600197473 /* TestCell.m */; };
 		3B85C476201B2B9E00BA4453 /* TriangleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B85C475201B2B9E00BA4453 /* TriangleGenerator.m */; };
 		3BFE17DB1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17DA1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m */; };
-		3BFE17DE1FFA873500C5AFFA /* PlaybackSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17DD1FFA873500C5AFFA /* PlaybackSectionController.m */; };
+		3BFE17DE1FFA873500C5AFFA /* MetronomeSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17DD1FFA873500C5AFFA /* MetronomeSectionController.m */; };
 		3BFE17E11FFA881F00C5AFFA /* RecordingSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17E01FFA881F00C5AFFA /* RecordingSectionController.m */; };
 		3BFE17E41FFA889800C5AFFA /* LibrarySectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17E31FFA889800C5AFFA /* LibrarySectionController.m */; };
 		7800485E2348AA56C3C7BF51 /* libPods-SoundNotesInTime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4831C4C85457A15A9F6F936C /* libPods-SoundNotesInTime.a */; };
@@ -51,8 +51,8 @@
 		3B85C475201B2B9E00BA4453 /* TriangleGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriangleGenerator.m; sourceTree = "<group>"; };
 		3BFE17D91FFA7A2E00C5AFFA /* SectionTypeDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionTypeDescriptor.h; sourceTree = "<group>"; };
 		3BFE17DA1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionTypeDescriptor.m; sourceTree = "<group>"; };
-		3BFE17DC1FFA873500C5AFFA /* PlaybackSectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaybackSectionController.h; sourceTree = "<group>"; };
-		3BFE17DD1FFA873500C5AFFA /* PlaybackSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaybackSectionController.m; sourceTree = "<group>"; };
+		3BFE17DC1FFA873500C5AFFA /* MetronomeSectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetronomeSectionController.h; sourceTree = "<group>"; };
+		3BFE17DD1FFA873500C5AFFA /* MetronomeSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetronomeSectionController.m; sourceTree = "<group>"; };
 		3BFE17DF1FFA881F00C5AFFA /* RecordingSectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordingSectionController.h; sourceTree = "<group>"; };
 		3BFE17E01FFA881F00C5AFFA /* RecordingSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordingSectionController.m; sourceTree = "<group>"; };
 		3BFE17E21FFA889800C5AFFA /* LibrarySectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibrarySectionController.h; sourceTree = "<group>"; };
@@ -135,8 +135,8 @@
 			children = (
 				3B62904F1FED376300197473 /* TestSectionController.h */,
 				3B6290501FED376300197473 /* TestSectionController.m */,
-				3BFE17DC1FFA873500C5AFFA /* PlaybackSectionController.h */,
-				3BFE17DD1FFA873500C5AFFA /* PlaybackSectionController.m */,
+				3BFE17DC1FFA873500C5AFFA /* MetronomeSectionController.h */,
+				3BFE17DD1FFA873500C5AFFA /* MetronomeSectionController.m */,
 				3BFE17DF1FFA881F00C5AFFA /* RecordingSectionController.h */,
 				3BFE17E01FFA881F00C5AFFA /* RecordingSectionController.m */,
 				3BFE17E21FFA889800C5AFFA /* LibrarySectionController.h */,
@@ -311,7 +311,7 @@
 				3B32DA162007A2A700142D3C /* Metronome.m in Sources */,
 				3BFE17DB1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m in Sources */,
 				3B6290551FED38A600197473 /* TestCell.m in Sources */,
-				3BFE17DE1FFA873500C5AFFA /* PlaybackSectionController.m in Sources */,
+				3BFE17DE1FFA873500C5AFFA /* MetronomeSectionController.m in Sources */,
 				3BFE17E11FFA881F00C5AFFA /* RecordingSectionController.m in Sources */,
 				3B36740C1FEC408E00CBD94D /* AppDelegate.m in Sources */,
 				3B6290511FED376300197473 /* TestSectionController.m in Sources */,

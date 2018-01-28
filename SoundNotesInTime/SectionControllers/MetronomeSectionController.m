@@ -6,13 +6,13 @@
 //  Copyright © 2018 dontgonearthecastle. All rights reserved.
 //
 
-#import "PlaybackSectionController.h"
+#import "MetronomeSectionController.h"
 
 #import "SectionTypeDescriptor.h"
 #import "PlaybackCell.h"
 
 
-@implementation PlaybackSectionController {
+@implementation MetronomeSectionController {
 	SectionTypeDescriptor *item;
 }
 
