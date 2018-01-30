@@ -84,28 +84,14 @@
 	
 	Float32 phaseStep = freqHz / sampleRate;
 	
-	if(isInterleaved) {
-		float *ptr = buffer.floatChannelData[0];
+	for (int ch = 0; ch < nChannels; ++ch) {
+		float *ptr = buffer.floatChannelData[ch];
+		
 		for (int frame = 0; frame < nFrames; ++frame) {
 			float phase = fmodf((float) frame * phaseStep, 1.0);
-			float value = (fabsf(2.0 - 4.0 * phase) - 1.0) * amplitude;
+			float value = phase * amplitude;
 			
-			for (int i = 0; i < nChannels; ++i) {
-				*ptr = value;
-				ptr = ptr + sizeof(float);
-			}
-		}
-	} else {
-		for (int ch = 0; ch < nChannels; ++ch) {
-			float *ptr = buffer.floatChannelData[ch];
-			
-			for (int frame = 0; frame < nFrames; ++frame) {
-				float phase = fmodf((float) frame * phaseStep, 1.0);
-				float value = (fabsf(2.0 - 4.0 * phase) - 1.0) * amplitude;
-				
-				*ptr = value;
-				ptr = ptr + sizeof(float);
-			}
+			ptr[frame] = value;
 		}
 	}
 }

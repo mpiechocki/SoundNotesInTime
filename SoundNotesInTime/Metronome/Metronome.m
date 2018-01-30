@@ -57,8 +57,8 @@ static Float32 kTempoChangeResponsivenessSeconds = 0.250;
 	soundBuffer[0].frameLength = bipFrames;
 	soundBuffer[1].frameLength = bipFrames;
 	
-	TriangleGenerator *generator1 = [[TriangleGenerator alloc] initWithSampleRate:format.sampleRate];
-	TriangleGenerator *generator2 = [[TriangleGenerator alloc] initWithSampleRate:format.sampleRate frequency:261.6];
+	TriangleGenerator *generator1 = [[TriangleGenerator alloc] initWithSampleRate:format.sampleRate frequency:440.0 amplitude:0.5];
+	TriangleGenerator *generator2 = [[TriangleGenerator alloc] initWithSampleRate:format.sampleRate frequency:261.6 amplitude:0.5];
 	[generator1 renderBuffer:soundBuffer[0]];
 	[generator2 renderBuffer:soundBuffer[1]];
 	
@@ -71,7 +71,7 @@ static Float32 kTempoChangeResponsivenessSeconds = 0.250;
 	const char *queueLabel = [@"Metronome" UTF8String];
 	syncQueue = dispatch_queue_create(queueLabel, NULL);
 	
-	[self setTempo:120.0];
+	[self setTempo:220.0];
 }
 
 - (void)dealloc
@@ -80,8 +80,53 @@ static Float32 kTempoChangeResponsivenessSeconds = 0.250;
 	[engine detachNode:player];
 }
 
-- (void) scheduleBeats {
-	if (isPlaying) return;
+- (void)scheduleBeats {
+	if (!isPlaying) return;
+	
+	while (beatsScheduled < beatsToScheduleAhead) {
+		// Schedule the beat.
+		
+		float secondsPerBeat = 60.0f / tempoBPM;
+		float samplesPerBeat = (float)(secondsPerBeat * bufferSampleRate);
+		AVAudioFramePosition beatSampleTime = (AVAudioFramePosition) nextBeatSampleTime;
+		AVAudioTime *playerBeatTime = [AVAudioTime timeWithSampleTime: beatSampleTime atRate: bufferSampleRate];
+		// This time is relative to the player's start time.
+		
+		[player scheduleBuffer:soundBuffer[bufferNumber] atTime:playerBeatTime options:0 completionHandler:^{
+			dispatch_sync(syncQueue, ^{
+				beatsScheduled -= 1;
+				bufferNumber ^= 1;
+				[self scheduleBeats];
+			});
+		}];
+		
+		beatsScheduled += 1;
+		
+		if (!playerStarted) {
+			// We defer the starting of the player so that the first beat will play precisely
+			// at player time 0. Having scheduled the first beat, we need the player to be running
+			// in order for nodeTimeForPlayerTime to return a non-nil value.
+			[player play];
+			playerStarted = YES;
+		}
+		
+		// Schedule the delegate callback (metronomeTicking:bar:beat:) if necessary.
+		if (_delegate && [_delegate respondsToSelector: @selector(tick)]) {
+			AVAudioTime *nodeBeatTime = [player nodeTimeForPlayerTime: playerBeatTime];
+			
+			AVAudioIONode *output = engine.outputNode;
+			
+			//NSLog(@"%@ %@ %.6f", playerBeatTime, nodeBeatTime, output.presentationLatency);
+			uint64_t latencyHostTicks = [AVAudioTime hostTimeForSeconds: output.presentationLatency];
+			dispatch_after(dispatch_time(nodeBeatTime.hostTime + latencyHostTicks, 0), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+				// hardcoded to 4/4 meter
+				if (isPlaying)
+					[_delegate tick];
+			});
+		}
+		
+		nextBeatSampleTime += samplesPerBeat;
+	}
 }
 
 - (BOOL) start {

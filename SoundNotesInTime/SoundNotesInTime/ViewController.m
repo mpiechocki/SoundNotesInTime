@@ -59,6 +59,16 @@
 	self.metronome.delegate = self;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear: animated];
+	if(self.metronome.start) {
+		NSLog(@"metronome started");
+	} else {
+		NSLog(@"metronome not started ;(");
+	}
+}
+
 #pragma mark - IGListAdapterDataSource
 
 - (NSArray<id<IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter {

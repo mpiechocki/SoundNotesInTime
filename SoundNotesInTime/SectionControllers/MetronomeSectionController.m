@@ -10,6 +10,7 @@
 
 #import "SectionTypeDescriptor.h"
 #import "PlaybackCell.h"
+#import "Metronome.h"
 
 
 @implementation MetronomeSectionController {
