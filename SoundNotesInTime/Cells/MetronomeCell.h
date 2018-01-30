@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MetronomeCell : UICollectionViewCell
+#import "Metronome.h"
+
+@interface MetronomeCell : UICollectionViewCell <MetronomeDelegate>
 
 @end

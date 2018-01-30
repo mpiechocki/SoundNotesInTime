@@ -18,14 +18,12 @@
 #import "MetronomeSectionController.h"
 #import "RecordingSectionController.h"
 #import "LibrarySectionController.h"
-#import "Metronome.h"
 
-@interface ViewController () <IGListAdapterDataSource, MetronomeDelegate>
+@interface ViewController () <IGListAdapterDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) IGListAdapter *adapter;
 @property NSArray<SectionTypeDescriptor *> *sections;
-@property Metronome *metronome;
 
 @end
 
@@ -55,18 +53,6 @@
 	self.adapter.dataSource = self;
 	
 	[self setupAudioSession];
-	self.metronome = [[Metronome alloc] init];
-	self.metronome.delegate = self;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-	[super viewDidAppear: animated];
-	if(self.metronome.start) {
-		NSLog(@"metronome started");
-	} else {
-		NSLog(@"metronome not started ;(");
-	}
 }
 
 #pragma mark - IGListAdapterDataSource
@@ -112,16 +98,6 @@
 // see https://developer.apple.com/library/content/qa/qa1749/_index.html
 - (void)handleMediaServicesWereReset:(NSNotification *)notification
 {
-	NSLog(@"Media services have reset...");
-	
-	// tear down
-	self.metronome.delegate = nil;
-	self.metronome = nil;
-	
-	// re-create
-	self.metronome = [[Metronome alloc] init];
-	self.metronome.delegate = self;
-	
 	NSError *error = nil;
 	[[AVAudioSession sharedInstance] setActive:YES error:&error];
 	if(error) {
