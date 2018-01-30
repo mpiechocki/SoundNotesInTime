@@ -34,7 +34,7 @@
 	UIView *superview = self.view;
 	
 	self.sections = @[
-					  [[SectionTypeDescriptor alloc] initWithType:Playback],
+					  [[SectionTypeDescriptor alloc] initWithType:Meronome],
 					  [[SectionTypeDescriptor alloc] initWithType:Recording],
 					  [[SectionTypeDescriptor alloc] initWithType:Library]
 					  ];
@@ -66,7 +66,7 @@
 	if (item == NULL) return IGListSectionController.new;
 	
 	switch (item.type) {
-		case Playback: return MetronomeSectionController.new;
+		case Meronome: return MetronomeSectionController.new;
 		case Recording: return RecordingSectionController.new;
 		case Library: return LibrarySectionController.new;
 	}

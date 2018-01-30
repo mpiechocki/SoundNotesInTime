@@ -11,14 +11,8 @@
 
 #import <IGListKit.h>
 
-//typedef enum {
-//	Playback,
-//	Recording,
-//	Library
-//} SectionType;
-
 typedef NS_ENUM(NSUInteger, SectionType) {
-	Playback,
+	Meronome,
 	Recording,
 	Library
 };

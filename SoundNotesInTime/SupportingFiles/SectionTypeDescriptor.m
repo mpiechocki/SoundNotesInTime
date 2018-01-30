@@ -18,7 +18,7 @@
 	if (self) {
 		self.type = type;
 		switch (type) {
-			case Playback:
+			case Meronome:
 				self.title = @"Playback";
 				break;
 			case Recording:
@@ -34,7 +34,7 @@
 
 - (nonnull id<NSObject>)diffIdentifier {
 	switch (self.type) {
-		case Playback: return @"Playback";
+		case Meronome: return @"Playback";
 		case Recording: return @"Recording";
 		case Library: return @"Library";
 	}
