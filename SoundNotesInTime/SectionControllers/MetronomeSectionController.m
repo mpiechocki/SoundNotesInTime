@@ -9,7 +9,7 @@
 #import "MetronomeSectionController.h"
 
 #import "SectionTypeDescriptor.h"
-#import "PlaybackCell.h"
+#import "MetronomeCell.h"
 #import "Metronome.h"
 
 
@@ -28,7 +28,7 @@
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
-	id cell = [self.collectionContext dequeueReusableCellOfClass:[PlaybackCell class] forSectionController:self atIndex:index];
+	id cell = [self.collectionContext dequeueReusableCellOfClass:[MetronomeCell class] forSectionController:self atIndex:index];
 	return cell;
 }
 

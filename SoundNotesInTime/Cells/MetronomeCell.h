@@ -1,5 +1,5 @@
 //
-//  PlaybackCell.h
+//  MetronomeCell.h
 //  SoundNotesInTime
 //
 //  Created by dontgonearthecastle on 11/01/2018.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlaybackCell : UICollectionViewCell
+@interface MetronomeCell : UICollectionViewCell
 
 @end

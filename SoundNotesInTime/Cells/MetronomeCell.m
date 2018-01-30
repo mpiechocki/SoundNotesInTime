@@ -1,16 +1,16 @@
 //
-//  PlaybackCell.m
+//  MetronomeCell.m
 //  SoundNotesInTime
 //
 //  Created by dontgonearthecastle on 11/01/2018.
 //  Copyright © 2018 dontgonearthecastle. All rights reserved.
 //
 
-#import "PlaybackCell.h"
+#import "MetronomeCell.h"
 
 #import <Masonry.h>
 
-@implementation PlaybackCell {
+@implementation MetronomeCell {
 	UIButton *playButton;
 }
 

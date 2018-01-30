@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B13E57420074845005531EE /* PlaybackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13E57320074845005531EE /* PlaybackCell.m */; };
+		3B13E57420074845005531EE /* MetronomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13E57320074845005531EE /* MetronomeCell.m */; };
 		3B13E57720075222005531EE /* RecordingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13E57620075222005531EE /* RecordingCell.m */; };
 		3B13E57A20075385005531EE /* LibraryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13E57920075385005531EE /* LibraryCell.m */; };
 		3B32DA162007A2A700142D3C /* Metronome.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B32DA152007A2A700142D3C /* Metronome.m */; };
@@ -26,8 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B13E57220074845005531EE /* PlaybackCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaybackCell.h; sourceTree = "<group>"; };
-		3B13E57320074845005531EE /* PlaybackCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaybackCell.m; sourceTree = "<group>"; };
+		3B13E57220074845005531EE /* MetronomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetronomeCell.h; sourceTree = "<group>"; };
+		3B13E57320074845005531EE /* MetronomeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetronomeCell.m; sourceTree = "<group>"; };
 		3B13E57520075222005531EE /* RecordingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordingCell.h; sourceTree = "<group>"; };
 		3B13E57620075222005531EE /* RecordingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordingCell.m; sourceTree = "<group>"; };
 		3B13E57820075385005531EE /* LibraryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryCell.h; sourceTree = "<group>"; };
@@ -150,8 +150,8 @@
 			children = (
 				3B6290531FED38A600197473 /* TestCell.h */,
 				3B6290541FED38A600197473 /* TestCell.m */,
-				3B13E57220074845005531EE /* PlaybackCell.h */,
-				3B13E57320074845005531EE /* PlaybackCell.m */,
+				3B13E57220074845005531EE /* MetronomeCell.h */,
+				3B13E57320074845005531EE /* MetronomeCell.m */,
 				3B13E57520075222005531EE /* RecordingCell.h */,
 				3B13E57620075222005531EE /* RecordingCell.m */,
 				3B13E57820075385005531EE /* LibraryCell.h */,
@@ -303,7 +303,7 @@
 			files = (
 				3B13E57720075222005531EE /* RecordingCell.m in Sources */,
 				3B85C476201B2B9E00BA4453 /* TriangleGenerator.m in Sources */,
-				3B13E57420074845005531EE /* PlaybackCell.m in Sources */,
+				3B13E57420074845005531EE /* MetronomeCell.m in Sources */,
 				3B36740F1FEC408E00CBD94D /* ViewController.m in Sources */,
 				3B36741A1FEC408E00CBD94D /* main.m in Sources */,
 				3BFE17E41FFA889800C5AFFA /* LibrarySectionController.m in Sources */,
