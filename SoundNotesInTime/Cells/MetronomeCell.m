@@ -18,8 +18,6 @@
 @end
 
 @implementation MetronomeCell {
-	Metronome *metronome;
-	
 	UIStackView *stackView;
 	UIButton *startButton;
 	UITextField *bpmTextField;
@@ -30,7 +28,7 @@
 {
 	self = [super init];
 	if (self) {
-		[self setup];
+		[self setupSubviews];
 	}
 	return self;
 }
@@ -39,19 +37,9 @@
 {
 	self = [super initWithFrame:frame];
 	if (self) {
-		[self setup];
+		[self setupSubviews];
 	}
 	return self;
-}
-
-- (void)setup
-{
-	[self setupSubviews];
-	[self setupMetronome];
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(handleMediaServicesWereReset:)
-												 name:AVAudioSessionMediaServicesWereResetNotification
-											   object:nil];
 }
 
 - (void)setupSubviews {
@@ -72,7 +60,7 @@
 	
 	// bpm text field
 	bpmTextField = UITextField.new;
-	[bpmTextField setPlaceholder:@"max 300 bpm"];
+	[bpmTextField setPlaceholder:@"max 300bpm"];
 	[bpmTextField setKeyboardType:UIKeyboardTypeNumberPad];
 	[bpmTextField setInputAccessoryView:toolbar];
 	bpmTextField.delegate = self;
@@ -91,35 +79,11 @@
 	}];
 }
 
-- (void)setupMetronome
-{
-	metronome = [[Metronome alloc] init];
-	metronome.delegate = self;
-}
-
 - (void)clicked:(UIButton *)sender
 {
 	startButton.selected = !startButton.isSelected;
 	if (startButton.isSelected) { [bpmTextField endEditing:true]; }
-	startButton.isSelected ? [metronome start] : [metronome stop];
-}
-
-#pragma mark - MetronomeDelegate
-- (void)tick
-{
-	NSLog(@"tick");
-}
-
-#pragma mark - Notifications
-- (void)handleMediaServicesWereReset:(NSNotification *)notification
-{
-	// tear down
-	metronome.delegate = nil;
-	metronome = nil;
-	
-	// re-create
-	metronome = [[Metronome alloc] init];
-	metronome.delegate = self;
+	[self.delegate startButton:startButton.isSelected];
 }
 
 #pragma mark - actions
@@ -133,7 +97,7 @@
 	NSString *bpmString = textField.text;
 	if (bpmString) {
 		int bpm = bpmString.intValue;
-		[metronome setTempo:(Float32) bpm];
+		[self.delegate bpmSet:bpm];
 	}
 }
 

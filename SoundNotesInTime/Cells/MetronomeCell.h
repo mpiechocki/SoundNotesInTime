@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Metronome.h"
+@protocol MetronomeCellDelegate;
 
-@interface MetronomeCell : UICollectionViewCell <MetronomeDelegate>
+@interface MetronomeCell : UICollectionViewCell
+@property (nullable, weak) id<MetronomeCellDelegate> delegate;
+@end
 
+@protocol MetronomeCellDelegate <NSObject>
+@optional
+- (void) startButton:(BOOL)isSelected;
+@optional
+- (void) bpmSet:(int)bpm;
 @end

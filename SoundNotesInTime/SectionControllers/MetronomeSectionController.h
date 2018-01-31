@@ -8,6 +8,8 @@
 
 #import <IGListKit/IGListKit.h>
 
-@interface MetronomeSectionController : IGListSectionController
+#import "Metronome.h"
+
+@interface MetronomeSectionController : IGListSectionController <MetronomeDelegate>
 
 @end
