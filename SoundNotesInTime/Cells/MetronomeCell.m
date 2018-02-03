@@ -12,9 +12,11 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+#import "TapTempoView.h"
+
 #define BPM_MAX 300
 
-@interface MetronomeCell () <UITextFieldDelegate>
+@interface MetronomeCell () <UITextFieldDelegate, TapTempoViewDelegate>
 @end
 
 @implementation MetronomeCell {
@@ -22,6 +24,7 @@
 	UIButton *startButton;
 	UITextField *bpmTextField;
 	UIToolbar *toolbar;
+	TapTempoView *tapTempoView;
 }
 
 - (instancetype)init
@@ -65,12 +68,17 @@
 	[bpmTextField setInputAccessoryView:toolbar];
 	bpmTextField.delegate = self;
 	
+	// tap tempo view
+	tapTempoView = TapTempoView.new;
+	tapTempoView.delegate = self;
+	
 	// stackView
 	stackView = UIStackView.new;
 	stackView.axis = UILayoutConstraintAxisHorizontal;
 	stackView.distribution = UIStackViewDistributionFillEqually;
 	[stackView addArrangedSubview:bpmTextField];
 	[stackView addArrangedSubview:startButton];
+	[stackView addArrangedSubview:tapTempoView];
 	
 	[self.contentView addSubview:stackView];
 	UIEdgeInsets padding = UIEdgeInsetsMake(5.0, 20.0, 5.0, 20.0);
@@ -112,4 +120,11 @@
 	return false;
 }
 
+- (void)bpmDetected:(int)bpm
+{
+	if (bpm <= BPM_MAX) {
+		[bpmTextField setText:[NSString stringWithFormat:@"%d", bpm]];
+		[self.delegate bpmSet:bpm];
+	}
+}
 @end
