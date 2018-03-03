@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecordingCell : UICollectionViewCell
+@protocol RecordingCellDelegate <NSObject>
+@optional
+-(void)recordClicked:(BOOL)isSelected;
+@end
 
+@interface RecordingCell : UICollectionViewCell
+@property (weak, nullable) id<RecordingCellDelegate> delegate;
 @end

@@ -49,5 +49,6 @@
 
 - (void) clicked:(UIButton *)sender {
 	recordButton.selected = !recordButton.isSelected;
+	[_delegate recordClicked:recordButton.isSelected];
 }
 @end

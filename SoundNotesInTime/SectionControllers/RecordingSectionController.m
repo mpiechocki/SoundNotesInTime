@@ -10,9 +10,28 @@
 
 #import "SectionTypeDescriptor.h"
 #import "RecordingCell.h"
+#import "MyRecorder.h"
+
+@interface RecordingSectionController () <RecordingCellDelegate>
+@end
 
 @implementation RecordingSectionController {
 	SectionTypeDescriptor *item;
+	
+	MyRecorder *recorder;
+}
+
+-(instancetype)init {
+	self = [super init];
+	if (self) {
+		[self setupRecorder];
+	}
+	return self;
+}
+
+-(void) setupRecorder {
+	recorder = MyRecorder.new;
+	NSLog(@"Setup recorder");
 }
 
 - (NSInteger)numberOfItems {
@@ -26,12 +45,21 @@
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
-	id cell = [self.collectionContext dequeueReusableCellOfClass:[RecordingCell class] forSectionController:self atIndex:index];
+	RecordingCell * cell = (RecordingCell *) [self.collectionContext dequeueReusableCellOfClass:[RecordingCell class] forSectionController:self atIndex:index];
+	if (cell) {
+		cell.delegate = self;
+	}
 	return cell;
 }
 
 - (void)didUpdateToObject:(id)object {
 	item = object;
+}
+
+#pragma mark - recording cell delegate
+-(void)recordClicked:(BOOL)isSelected {
+	isSelected ? [recorder record] : [recorder stop];
+	[_delegate recordClicked: isSelected];
 }
 
 @end

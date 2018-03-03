@@ -13,8 +13,11 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "TapTempoView.h"
+#import "ColorPalette.h"
 
 #define BPM_MAX 300
+#define BPM_MIN 50
+#define BPM_DEFAULT 60
 
 @interface MetronomeCell () <UITextFieldDelegate, TapTempoViewDelegate>
 @end
@@ -45,11 +48,12 @@
 	return self;
 }
 
-- (void)setupSubviews {
-	
+- (void)setupSubviews
+{
 	// start button
 	startButton = UIButton.new;
 	startButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+	startButton.layer.backgroundColor = [ColorPalette startMetronomeBackground].CGColor;
 	[startButton setTitle:@"START" forState:UIControlStateNormal];
 	[startButton setTitleColor:UIColor.blueColor forState:UIControlStateNormal];
 	[startButton setTitle:@"PAUSE" forState:UIControlStateSelected];
@@ -58,14 +62,16 @@
 	
 	// toolbar
 	toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
-	UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonAction)];
+	UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonAction)];
 	[toolbar setItems:@[doneButtonItem]];
 	
 	// bpm text field
 	bpmTextField = UITextField.new;
-	[bpmTextField setPlaceholder:@"max 300bpm"];
+	[bpmTextField setPlaceholder:@"bpm"];
 	[bpmTextField setKeyboardType:UIKeyboardTypeNumberPad];
 	[bpmTextField setInputAccessoryView:toolbar];
+	[bpmTextField setTextAlignment:NSTextAlignmentCenter];
+	bpmTextField.layer.backgroundColor = [ColorPalette buttonBackground].CGColor;
 	bpmTextField.delegate = self;
 	
 	// tap tempo view
@@ -77,8 +83,8 @@
 	stackView.axis = UILayoutConstraintAxisHorizontal;
 	stackView.distribution = UIStackViewDistributionFillEqually;
 	[stackView addArrangedSubview:bpmTextField];
-	[stackView addArrangedSubview:startButton];
 	[stackView addArrangedSubview:tapTempoView];
+	[stackView addArrangedSubview:startButton];
 	
 	[self.contentView addSubview:stackView];
 	UIEdgeInsets padding = UIEdgeInsetsMake(5.0, 20.0, 5.0, 20.0);
@@ -105,7 +111,12 @@
 	NSString *bpmString = textField.text;
 	if (bpmString) {
 		int bpm = bpmString.intValue;
-		[self.delegate bpmSet:bpm];
+		if (bpm <= BPM_MAX) {
+			[self.delegate bpmSet:bpm];
+		} else {
+			textField.text = [NSString stringWithFormat:@"%d", BPM_DEFAULT];
+			[self.delegate bpmSet:BPM_DEFAULT];
+		}
 	}
 }
 
@@ -120,9 +131,10 @@
 	return false;
 }
 
+#pragma mark - TapTempoViewDelegate
 - (void)bpmDetected:(int)bpm
 {
-	if (bpm <= BPM_MAX) {
+	if (bpm >= BPM_MIN && bpm <= BPM_MAX) {
 		[bpmTextField setText:[NSString stringWithFormat:@"%d", bpm]];
 		[self.delegate bpmSet:bpm];
 	}

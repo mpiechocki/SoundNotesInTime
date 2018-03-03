@@ -8,6 +8,11 @@
 
 #import <IGListKit/IGListKit.h>
 
-@interface RecordingSectionController : IGListSectionController
+@protocol RecordingSectionControllerDelegate
+@optional
+-(void) recordClicked:(BOOL)isSelected;
+@end
 
+@interface RecordingSectionController : IGListSectionController
+@property (weak, nullable) id<RecordingSectionControllerDelegate> delegate;
 @end

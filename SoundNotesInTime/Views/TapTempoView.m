@@ -10,6 +10,8 @@
 
 #import <Masonry.h>
 
+#import "ColorPalette.h"
+
 @implementation TapTempoView {
 	UILabel *label;
 	NSTimeInterval lastTapTime;
@@ -46,11 +48,10 @@
 {
 	lastTapTime = 0.0;
 	
-	self.layer.borderWidth = 1.0;
-	self.layer.borderColor = UIColor.lightGrayColor.CGColor;
+	self.layer.backgroundColor = [ColorPalette tapViewBackground].CGColor;
 	
 	label = UILabel.new;
-	[label setContentMode:UIViewContentModeCenter];
+	[label setTextAlignment:NSTextAlignmentCenter];
 	[label setText:@"tap"];
 	[label setTextColor:UIColor.lightGrayColor];
 	[self addSubview:label];

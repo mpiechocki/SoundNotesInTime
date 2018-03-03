@@ -80,7 +80,7 @@
 {
 	NSError *error = nil;
 	AVAudioSession *session = [AVAudioSession sharedInstance];
-	[session setCategory:AVAudioSessionCategoryAmbient error:&error];
+	[session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
 	if(error) {
 		NSLog(@"AVAudioSession error %ld, %@", error.code, error.localizedDescription);
 	}
@@ -103,12 +103,6 @@
 	if(error) {
 		NSLog(@"AVAudioSession error %ld, %@", error.code, error.localizedDescription);
 	}
-}
-
-#pragma mark- Metronome Delegate
-- (void) tick
-{
-	NSLog(@"TICK");
 }
 
 @end
