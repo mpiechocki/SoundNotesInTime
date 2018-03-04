@@ -20,6 +20,7 @@
 		3B85C476201B2B9E00BA4453 /* TriangleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B85C475201B2B9E00BA4453 /* TriangleGenerator.m */; };
 		3BAAFBA5204AA93E00ED68EE /* ColorPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAAFBA4204AA93E00ED68EE /* ColorPalette.m */; };
 		3BAAFBA9204AB42C00ED68EE /* MyRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAAFBA8204AB42C00ED68EE /* MyRecorder.m */; };
+		3BB39739204C8FBB00AA6079 /* Recording.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB39738204C8FBA00AA6079 /* Recording.m */; };
 		3BE4BFFC2025C7B600730BE7 /* TapTempoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BFFB2025C7B600730BE7 /* TapTempoView.m */; };
 		3BFE17DB1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17DA1FFA7ECA00C5AFFA /* SectionTypeDescriptor.m */; };
 		3BFE17DE1FFA873500C5AFFA /* MetronomeSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE17DD1FFA873500C5AFFA /* MetronomeSectionController.m */; };
@@ -56,6 +57,8 @@
 		3BAAFBA4204AA93E00ED68EE /* ColorPalette.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorPalette.m; sourceTree = "<group>"; };
 		3BAAFBA7204AB41800ED68EE /* MyRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRecorder.h; sourceTree = "<group>"; };
 		3BAAFBA8204AB42C00ED68EE /* MyRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRecorder.m; sourceTree = "<group>"; };
+		3BB39737204C8FA600AA6079 /* Recording.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Recording.h; sourceTree = "<group>"; };
+		3BB39738204C8FBA00AA6079 /* Recording.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Recording.m; sourceTree = "<group>"; };
 		3BE4BFFA2025C7B600730BE7 /* TapTempoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TapTempoView.h; sourceTree = "<group>"; };
 		3BE4BFFB2025C7B600730BE7 /* TapTempoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapTempoView.m; sourceTree = "<group>"; };
 		3BFE17D91FFA7A2E00C5AFFA /* SectionTypeDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionTypeDescriptor.h; sourceTree = "<group>"; };
@@ -174,10 +177,20 @@
 		3BAAFBA6204AB3FB00ED68EE /* Recorder */ = {
 			isa = PBXGroup;
 			children = (
+				3BB39733204C8F5300AA6079 /* Model */,
 				3BAAFBA7204AB41800ED68EE /* MyRecorder.h */,
 				3BAAFBA8204AB42C00ED68EE /* MyRecorder.m */,
 			);
 			path = Recorder;
+			sourceTree = "<group>";
+		};
+		3BB39733204C8F5300AA6079 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BB39737204C8FA600AA6079 /* Recording.h */,
+				3BB39738204C8FBA00AA6079 /* Recording.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3BE4BFF92025C79500730BE7 /* Views */ = {
@@ -337,6 +350,7 @@
 				3B13E57420074845005531EE /* MetronomeCell.m in Sources */,
 				3B36740F1FEC408E00CBD94D /* ViewController.m in Sources */,
 				3B36741A1FEC408E00CBD94D /* main.m in Sources */,
+				3BB39739204C8FBB00AA6079 /* Recording.m in Sources */,
 				3BFE17E41FFA889800C5AFFA /* LibrarySectionController.m in Sources */,
 				3BAAFBA9204AB42C00ED68EE /* MyRecorder.m in Sources */,
 				3B13E57A20075385005531EE /* LibraryCell.m in Sources */,

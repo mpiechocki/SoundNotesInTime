@@ -10,6 +10,8 @@
 
 #import <AVFoundation/AVFoundation.h>
 
+#import "Recording.h"
+
 @interface MyRecorder () <AVAudioPlayerDelegate, AVAudioRecorderDelegate> {
 	AVAudioPlayer *player;
 	AVAudioRecorder *recorder;
@@ -28,9 +30,10 @@
 }
 
 - (void) setup {
+	Recording *newRec = [[Recording alloc] initWithTitle:@"NewFile"];
 	NSArray *pathComponents = [NSArray arrayWithObjects:
 							   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-							   @"MyAudioMemo2.m4a",
+							   newRec.fileName,
 							   nil];
 	NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
 	
@@ -43,6 +46,7 @@
 	recorder.delegate = self;
 	recorder.meteringEnabled = true;
 	[recorder prepareToRecord];
+	
 }
 
 -(void) record {
