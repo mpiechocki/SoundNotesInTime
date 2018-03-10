@@ -19,11 +19,12 @@
 #import "RecordingSectionController.h"
 #import "LibrarySectionController.h"
 
-@interface ViewController () <IGListAdapterDataSource>
+@interface ViewController () <IGListAdapterDataSource, RecordingSectionControllerDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) IGListAdapter *adapter;
 @property NSArray<SectionTypeDescriptor *> *sections;
+@property NSMutableArray<NSString *> *filenames;
 
 @end
 
@@ -33,11 +34,9 @@
 	[super viewDidLoad];
 	UIView *superview = self.view;
 	
-	self.sections = @[
-					  [[SectionTypeDescriptor alloc] initWithType:Meronome],
-					  [[SectionTypeDescriptor alloc] initWithType:Recording],
-					  [[SectionTypeDescriptor alloc] initWithType:Library]
-					  ];
+	[self setupExistingRecordingsFilenames];
+	
+	[self reloadSections];
 
 	self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
 											 collectionViewLayout:[UICollectionViewFlowLayout new]];
@@ -55,6 +54,36 @@
 	[self setupAudioSession];
 }
 
+-(void) setupExistingRecordingsFilenames {
+	NSArray<NSURL *> *existingUrls = [self getExistingRecordingsUrls];
+	self.filenames = nil;
+	self.filenames = NSMutableArray.new;
+	if (existingUrls) {
+		for (NSURL *url in existingUrls) {
+			[self.filenames addObject:[url.absoluteString lastPathComponent]];
+		}
+	}
+}
+
+-(NSArray<NSURL *> *) getExistingRecordingsUrls {
+	NSURL *documentsDirectory = [[NSFileManager.defaultManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+	if (documentsDirectory) {
+		return [NSFileManager.defaultManager contentsOfDirectoryAtURL:documentsDirectory includingPropertiesForKeys:nil options:NSDirectoryEnumerationSkipsSubdirectoryDescendants error:nil];
+	}
+	return nil;
+}
+
+-(void) reloadSections {
+	SectionTypeDescriptor *librarySection = [[SectionTypeDescriptor alloc] initWithType:Library];
+	librarySection.filenames = self.filenames;
+	self.sections = @[
+					  [[SectionTypeDescriptor alloc] initWithType:Meronome],
+					  [[SectionTypeDescriptor alloc] initWithType:Recording],
+					  librarySection
+					  ];
+	[_adapter performUpdatesAnimated:YES completion:nil];
+}
+
 #pragma mark - IGListAdapterDataSource
 
 - (NSArray<id<IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter {
@@ -66,9 +95,17 @@
 	if (item == NULL) return IGListSectionController.new;
 	
 	switch (item.type) {
-		case Meronome: return MetronomeSectionController.new;
-		case Recording: return RecordingSectionController.new;
-		case Library: return LibrarySectionController.new;
+		case Meronome:
+			return MetronomeSectionController.new;
+		case Recording: {
+			RecordingSectionController *controller = RecordingSectionController.new;
+			controller.delegate = self;
+			return controller;
+		}
+		case Library: {
+			LibrarySectionController *controller = [[LibrarySectionController alloc] initWithFilenames: self.filenames];
+			return controller;
+		}
 	}
 }
 
@@ -94,7 +131,7 @@
 											   object:session];
 }
 
-#pragma mark- AVAudioSession Notifications
+#pragma mark - AVAudioSession Notifications
 // see https://developer.apple.com/library/content/qa/qa1749/_index.html
 - (void)handleMediaServicesWereReset:(NSNotification *)notification
 {
@@ -103,6 +140,34 @@
 	if(error) {
 		NSLog(@"AVAudioSession error %ld, %@", error.code, error.localizedDescription);
 	}
+}
+
+#pragma mark - RecordingSectionControllerDelegate
+-(void)recordStopped:(NSURL *)newFileUrl {
+	UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Enter filename"
+																   message:@"Please enter file name for your recording"
+															preferredStyle:UIAlertControllerStyleAlert];
+	
+	UIAlertAction *submit = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+		if (alert.textFields.count > 0) {
+			UITextField *textField = [alert.textFields firstObject];
+			NSString *newNamedUrlDirectoryString = [newFileUrl.absoluteString stringByDeletingLastPathComponent];
+			NSMutableString *newNamedUrlString = [newNamedUrlDirectoryString mutableCopy];
+			[newNamedUrlString appendString:@"/"];
+			[newNamedUrlString appendString:textField.text];
+			[newNamedUrlString appendString:@".m4a"];
+			[NSURL URLWithString:newNamedUrlString];
+			[NSFileManager.defaultManager moveItemAtURL:newFileUrl toURL:[NSURL URLWithString:newNamedUrlString] error:nil];
+			[self setupExistingRecordingsFilenames];
+			[self reloadSections];
+		}
+	}];
+	[alert addAction:submit];
+	[alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+		textField.placeholder = @"My new recording";
+	}];
+	
+	[self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

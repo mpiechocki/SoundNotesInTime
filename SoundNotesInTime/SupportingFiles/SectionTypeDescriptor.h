@@ -20,6 +20,7 @@ typedef NS_ENUM(NSUInteger, SectionType) {
 @interface SectionTypeDescriptor: NSObject <IGListDiffable>
 @property SectionType type;
 @property NSString *title;
+@property NSArray<NSString *> *filenames;
 
 - (instancetype)initWithType:(SectionType)type;
 @end

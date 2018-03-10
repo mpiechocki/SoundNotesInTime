@@ -9,5 +9,5 @@
 #import <IGListKit/IGListKit.h>
 
 @interface LibrarySectionController : IGListSectionController
-
+-(instancetype) initWithFilenames:(NSArray<NSString *> *)files;
 @end

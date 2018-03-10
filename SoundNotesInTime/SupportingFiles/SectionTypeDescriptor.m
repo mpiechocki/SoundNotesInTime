@@ -20,12 +20,15 @@
 		switch (type) {
 			case Meronome:
 				self.title = @"Playback";
+				self.filenames = nil;
 				break;
 			case Recording:
 				self.title = @"Recording";
+				self.filenames = nil;
 				break;
 			case Library:
 				self.title = @"Library";
+				self.filenames = nil;
 				break;
 		}
 	}
@@ -36,13 +39,22 @@
 	switch (self.type) {
 		case Meronome: return @"Playback";
 		case Recording: return @"Recording";
-		case Library: return @"Library";
+		case Library: return [self.filenames componentsJoinedByString:@","];
 	}
 	return @"";
 }
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object {
-	return object.diffIdentifier == self.diffIdentifier;
+	switch (self.type) {
+		case Meronome: return object.diffIdentifier == self.diffIdentifier;
+		case Recording: return object.diffIdentifier == self.diffIdentifier;
+		case Library: {
+			if ((SectionTypeDescriptor *) object) {
+				return ((SectionTypeDescriptor *) object).filenames == self.filenames;
+			}
+			return false;
+		}
+	}
 }
 
 @end

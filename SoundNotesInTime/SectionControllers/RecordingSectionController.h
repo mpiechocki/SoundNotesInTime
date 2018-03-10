@@ -10,7 +10,7 @@
 
 @protocol RecordingSectionControllerDelegate
 @optional
--(void) recordClicked:(BOOL)isSelected;
+-(void) recordStopped:(NSURL *_Nullable)newFileUrl;
 @end
 
 @interface RecordingSectionController : IGListSectionController

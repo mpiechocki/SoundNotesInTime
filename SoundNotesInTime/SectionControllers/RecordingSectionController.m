@@ -30,8 +30,7 @@
 }
 
 -(void) setupRecorder {
-	recorder = MyRecorder.new;
-	NSLog(@"Setup recorder");
+	recorder = MyRecorder.shared;
 }
 
 - (NSInteger)numberOfItems {
@@ -59,7 +58,9 @@
 #pragma mark - recording cell delegate
 -(void)recordClicked:(BOOL)isSelected {
 	isSelected ? [recorder record] : [recorder stop];
-	[_delegate recordClicked: isSelected];
+	if (!isSelected && recorder.lastFileUrl) {
+		[_delegate recordStopped: recorder.lastFileUrl];
+	}
 }
 
 @end

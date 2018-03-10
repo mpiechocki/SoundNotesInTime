@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LibraryCell : UICollectionViewCell
-
+@property (nonatomic) NSArray<NSString *> *filenames;
 @end

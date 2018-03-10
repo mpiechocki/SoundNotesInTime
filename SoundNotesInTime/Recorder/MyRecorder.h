@@ -12,8 +12,13 @@
 #define Recorder_h
 
 @interface MyRecorder: NSObject
+@property NSURL *lastFileUrl;
+
++(instancetype) shared;
+
 -(void) record;
 -(void) stop;
+-(void) playUrl:(NSURL *)url;
 @end
 
 #endif /* Recorder_h */

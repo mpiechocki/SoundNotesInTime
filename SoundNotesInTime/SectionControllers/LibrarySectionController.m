@@ -13,6 +13,15 @@
 
 @implementation LibrarySectionController {
 	SectionTypeDescriptor *item;
+	NSArray<NSString *> *filenames;
+}
+
+-(instancetype) initWithFilenames:(NSArray<NSString *> *)files {
+	self = [super init];
+	if (self) {
+		filenames = files;
+	}
+	return self;
 }
 
 - (NSInteger)numberOfItems {
@@ -21,12 +30,13 @@
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
 	const CGFloat width = self.collectionContext.containerSize.width;
-	CGFloat height = 500.0;
+	CGFloat height = 300.0;
 	return CGSizeMake(width, height);
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
 	id cell = [self.collectionContext dequeueReusableCellOfClass:[LibraryCell class] forSectionController:self atIndex:index];
+	[cell setFilenames: filenames];
 	return cell;
 }
 

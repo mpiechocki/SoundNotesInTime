@@ -9,16 +9,27 @@
 #import "MyRecorder.h"
 
 #import <AVFoundation/AVFoundation.h>
+#import <UIKit/UIKit.h>
 
 #import "Recording.h"
 
 @interface MyRecorder () <AVAudioPlayerDelegate, AVAudioRecorderDelegate> {
 	AVAudioPlayer *player;
 	AVAudioRecorder *recorder;
+	NSMutableDictionary *recordSettings;
 }
 @end
 
 @implementation MyRecorder
+
++(instancetype) shared {
+	static MyRecorder *sharedMyRecorder = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		sharedMyRecorder = [[self alloc] init];
+	});
+	return sharedMyRecorder;
+}
 
 - (instancetype)init
 {
@@ -30,33 +41,51 @@
 }
 
 - (void) setup {
-	Recording *newRec = [[Recording alloc] initWithTitle:@"NewFile"];
-	NSArray *pathComponents = [NSArray arrayWithObjects:
-							   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-							   newRec.fileName,
-							   nil];
-	NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
-	
-	NSMutableDictionary *recordSettings = NSMutableDictionary.new;
+	recordSettings = NSMutableDictionary.new;
 	[recordSettings setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
 	[recordSettings setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
 	[recordSettings setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
-	
-	recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSettings error:NULL];
-	recorder.delegate = self;
-	recorder.meteringEnabled = true;
-	[recorder prepareToRecord];
-	
 }
 
 -(void) record {
-	[recorder record];
-	NSLog(@"RECORDING");
+	Recording *newRec = [[Recording alloc] initWithTitle:@"New Recording"];
+	NSURL *outputFileURL = [self getFileNameUrlForRecording:newRec];
+	self.lastFileUrl = outputFileURL;
+	[self setupRecorderWithFileUrl:outputFileURL];
+	if ([recorder prepareToRecord]) {
+		[recorder record];
+		NSLog(@"RECORDING");
+	} else {
+		NSLog(@"ERROR WHILE preparing to record");
+	}
 }
 
 -(void) stop {
 	[recorder stop];
-	NSLog(@"STOPPED RECORDING");
+}
+
+-(void) playUrl:(NSURL *) url {
+	if (!recorder.isRecording) {
+		player = nil;
+		player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+//		[player setDelegate:self];
+		[player play];
+	}
+}
+
+-(void) setupRecorderWithFileUrl:(NSURL *) url {
+	recorder = nil;
+	recorder = [[AVAudioRecorder alloc] initWithURL:url settings:recordSettings error:NULL];
+	recorder.delegate = self;
+	recorder.meteringEnabled = true;
+}
+
+-(NSURL *) getFileNameUrlForRecording:(Recording *)recording {
+	NSArray *pathComponents = [NSArray arrayWithObjects:
+							   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+							   recording.fileName,
+							   nil];
+	return [NSURL fileURLWithPathComponents:pathComponents];
 }
 
 @end
